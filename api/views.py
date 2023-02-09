@@ -29,7 +29,7 @@ class TaskListApiView(APIView):
         '''
         Create the Task with given task data
         '''
-        repeat = request.data.get('repeat')
+        repeat = request.data.get('repeat') if request.data.get('repeat') is not None else 1
         dueAt = request.data.get('dueAt')
         data_array = []
         for i in range(0, repeat):
